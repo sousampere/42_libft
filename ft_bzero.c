@@ -6,11 +6,11 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:17:47 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/27 17:18:54 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/10/28 09:05:33 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	ft_bzero(void *dst, size_t n)
 {
