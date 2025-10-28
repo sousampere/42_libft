@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:25:37 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/27 20:08:08 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/10/28 09:22:16 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 void*	ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t		i;
-	long long	*new_dest;
+	char		*new_dest;
+	const char	*new_src;
 
 	i = 0;
+	new_dest = dest;
+	new_src = src;
 	while (i < n)
 	{
-		new_dest[i] = src[n];
+		new_dest[i] = new_src[i];
 		i++;
 	}
+	return (new_dest);
 }
