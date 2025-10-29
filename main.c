@@ -5,10 +5,10 @@
 
 int	main(void)
 {
-	char	dest[] = "Enchante";
-	char	src[] = "Laurent";
-	size_t val = ft_strlcat(dest, src, 1);
-	printf("%s\n%zu\n", dest, val);
+	const char	dest[] = "Enchante";
+	int c = 'c';
+	printf("%s\n", strchr(dest, c));
+	printf("%s\n", dest);
 }
 
 // V isalpha
@@ -58,3 +58,4 @@ int	main(void)
 		// size_t val = ft_strlcpy(dest, src, 60);
 		// printf("%s\n%zu\n", dest, val);
 // V strlcat
+// V strchr
