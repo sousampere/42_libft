@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 11:32:26 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/29 14:09:16 by gtourdia         ###   ########.fr       */
+/*   Created: 2025/10/29 14:16:26 by gtourdia          #+#    #+#             */
+/*   Updated: 2025/10/29 14:17:11 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+#include "libft.h"
+
+int	strncmp(const char *s1, const char *s2, size_t n)
 {
-	return (c - ('a' <= c && c <= 'z') * 32);
+	
 }

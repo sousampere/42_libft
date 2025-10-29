@@ -5,10 +5,8 @@
 
 int	main(void)
 {
-	const char	dest[] = "Enchante";
-	int c = 'c';
-	printf("%s\n", strchr(dest, c));
-	printf("%s\n", dest);
+	const char	str[] = "Bro code";
+	printf("%s", ft_strrchr(str, 'd'));
 }
 
 // V isalpha
@@ -59,3 +57,4 @@ int	main(void)
 		// printf("%s\n%zu\n", dest, val);
 // V strlcat
 // V strchr
+// V strrchr
