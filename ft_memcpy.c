@@ -6,13 +6,13 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:25:37 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/28 09:22:16 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/10/28 10:06:36 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void*	ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t		i;
 	char		*new_dest;

@@ -5,23 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 17:05:24 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/27 17:12:31 by gtourdia         ###   ########.fr       */
+/*   Created: 2025/10/28 17:20:10 by gtourdia          #+#    #+#             */
+/*   Updated: 2025/10/28 17:35:57 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	ft_memset(void *dst, int c, size_t length)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
-	char	*char_dest;
+	char	*c_s;
 
 	i = 0;
-	char_dest = dst;
-	while (i < length)
+	c_s = s;
+	while (i < n)
 	{
-		char_dest[i] = c;
+		c_s[i] = (char) c;
 		i++;
 	}
+	return (s);
 }
