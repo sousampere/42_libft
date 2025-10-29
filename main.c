@@ -5,7 +5,10 @@
 
 int	main(void)
 {
-
+	char	dest[] = "Enchante";
+	char	src[] = "Laurent";
+	size_t val = ft_strlcat(dest, src, 1);
+	printf("%s\n%zu\n", dest, val);
 }
 
 // V isalpha
@@ -48,9 +51,10 @@ int	main(void)
 		// 	printf("%d", tab[i]);
 		// 	i++;
 		// }
-// strlcpy
+// V strlcpy
 		// char	dest[] = "Enchante";
 		// char	src[] = "Laurent";
 
 		// size_t val = ft_strlcpy(dest, src, 60);
 		// printf("%s\n%zu\n", dest, val);
+// V strlcat
