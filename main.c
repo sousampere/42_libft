@@ -7,10 +7,11 @@
 
 int	main(void)
 {
-	const char	dest[] = "Enchanter";
-	const char	dest2[] = "Enchanter";
+	const char	big[] = "Enchanter";
+	const char	lil[] = "chante";
 
-	printf("%d\n", ft_memcmp(dest, dest2, 0));
+	printf("%s\n", ft_strnstr(big, lil, 10));
+	printf("%s\n", strnstr(big, lil, 10));
 }
 
 // V isalpha
