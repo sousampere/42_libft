@@ -30,5 +30,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	{
 		dst[i + destlen] = '\0';
 	}
-	return (size + ft_strlen(src));
+	return (destlen + ft_strlen(src));
 }

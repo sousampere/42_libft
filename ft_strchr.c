@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:47:58 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/29 13:58:21 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/10/29 18:01:01 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	while (*s != '\0')
 	{
 		if (*s == c)
-		{
-			return ((char*)s);
-		}
+			return ((char *)s);
 		s++;
 	}
 	return (NULL);

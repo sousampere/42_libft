@@ -1,12 +1,16 @@
 #include <ctype.h>
-#include <string.h>
+// #include <string.h>
 #include <stdio.h>
 #include "libft.h"
+#include <bsd/string.h>
+// VERIF STRLCPY STRLCAT
 
 int	main(void)
 {
-	const char	str[] = "Bro code";
-	printf("%s", ft_strrchr(str, 'd'));
+	const char	dest[] = "Enchanter";
+	const char	dest2[] = "Enchanter";
+
+	printf("%d\n", ft_memcmp(dest, dest2, 0));
 }
 
 // V isalpha
@@ -49,12 +53,12 @@ int	main(void)
 		// 	printf("%d", tab[i]);
 		// 	i++;
 		// }
-// V strlcpy
+// strlcpy
 		// char	dest[] = "Enchante";
 		// char	src[] = "Laurent";
 
 		// size_t val = ft_strlcpy(dest, src, 60);
 		// printf("%s\n%zu\n", dest, val);
-// V strlcat
+// strlcat
 // V strchr
 // V strrchr
