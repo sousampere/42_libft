@@ -5,12 +5,42 @@
 #include <bsd/string.h>
 // VERIF STRLCPY STRLCAT
 
+#include <string.h>
+/* Set N bytes of S to 0.  */
+void __bzero (void *s, size_t len)
+{
+  memset (s, '\0', len);
+}
+
 int	main(void)
 {
-	int	fd;
-	fd = open("file.txt", O_RDWR);
-	ft_putnbr_fd(1, fd);
-	close(fd);
+	// ----- ft_atoi
+	char	nptr[] = "84590";
+	char	nptr2[] = "+845a90";
+	char	nptr3[] = "dd845a90";
+	char	nptr4[] = "-845a90";
+	char	nptr5[] = "-845a90";
+	char	nptr6[] = "--845a90";
+	char	nptr7[] = "-2147483648";
+	char	nptr8[] = "2147483647";
+	printf("Original ->\t%d\nCreated  ->\t%d\n", atoi(nptr), ft_atoi(nptr));
+	printf("Original ->\t%d\nCreated  ->\t%d\n", atoi(nptr2), ft_atoi(nptr2));
+	printf("Original ->\t%d\nCreated  ->\t%d\n", atoi(nptr3), ft_atoi(nptr3));
+	printf("Original ->\t%d\nCreated  ->\t%d\n", atoi(nptr4), ft_atoi(nptr4));
+	printf("Original ->\t%d\nCreated  ->\t%d\n", atoi(nptr5), ft_atoi(nptr5));
+	printf("Original ->\t%d\nCreated  ->\t%d\n", atoi(nptr6), ft_atoi(nptr6));
+	printf("Original ->\t%d\nCreated  ->\t%d\n", atoi(nptr7), ft_atoi(nptr7));
+	printf("Original ->\t%d\nCreated  ->\t%d\n", atoi(nptr8), ft_atoi(nptr8));
+	// ----- ft_bzero
+	// char	*bzerostr = malloc(sizeof(char) * 10);
+	// char	*bzerostr2 = malloc(sizeof(char) * 10);
+	// ft_bzero(bzerostr, 10);
+	// __bzero(bzerostr2, 10);
+	// printf("Bzero %s\n", bzerostr2);
+	// ----- ft_itoa
+	int	vitoa = -2147483648;
+	printf("Original ->\t(No function)\nCreated  ->\t%s\n", ft_itoa(vitoa));
+	// ----- 
 }
 
 // V isalpha
