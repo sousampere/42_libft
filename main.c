@@ -7,11 +7,10 @@
 
 int	main(void)
 {
-	const char	big[] = "Enchanter";
-	const char	lil[] = "chante";
-
-	printf("%s\n", ft_strnstr(big, lil, 10));
-	printf("%s\n", strnstr(big, lil, 10));
+	int	fd;
+	fd = open("file.txt", O_RDWR);
+	ft_putnbr_fd(1, fd);
+	close(fd);
 }
 
 // V isalpha

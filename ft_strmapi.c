@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 10:29:14 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/30 18:20:08 by gtourdia         ###   ########.fr       */
+/*   Created: 2025/10/31 13:46:51 by gtourdia          #+#    #+#             */
+/*   Updated: 2025/10/31 14:07:34 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+// char	ft(unsigned int i, char c)
+// {
+// 	if ('a' <= c && c <= 'z' && i % 2 == 0)
+// 		return (toupper(c));
+// 	return (c);
+// }
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	char	*c_s1;
-	char	*c_s2;
+	unsigned int	i;
+	char			*newstr;
 
 	i = 0;
-	c_s1 = (char *) s1;
-	c_s2 = (char *) s2;
-	if (n == 0)
-		return (0);
-	while (i < n)
+	newstr = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (newstr == NULL)
+		return (NULL);
+	while (s[i])
 	{
-		if (c_s1[i] != c_s2[i])
-			return ((char) c_s1[i] - (char) c_s2[i]);
+		newstr[i] = f(i, s[i]);
 		i++;
 	}
-	return (0);
+	newstr[i] = '\0';
+	return (newstr);
 }

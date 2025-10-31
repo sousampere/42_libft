@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 10:29:14 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/30 18:20:08 by gtourdia         ###   ########.fr       */
+/*   Created: 2025/10/30 17:43:41 by gtourdia          #+#    #+#             */
+/*   Updated: 2025/10/31 13:54:29 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*substr;
 	size_t	i;
-	char	*c_s1;
-	char	*c_s2;
 
 	i = 0;
-	c_s1 = (char *) s1;
-	c_s2 = (char *) s2;
-	if (n == 0)
-		return (0);
-	while (i < n)
+	substr = malloc(len * sizeof(char));
+	while (i < len && (substr != NULL) && s[i + start])
 	{
-		if (c_s1[i] != c_s2[i])
-			return ((char) c_s1[i] - (char) c_s2[i]);
+		substr[i] = s[i + start];
 		i++;
 	}
-	return (0);
+	substr[i] = '\0';
+	return (substr);
 }
