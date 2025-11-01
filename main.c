@@ -40,7 +40,33 @@ int	main(void)
 	// ----- ft_itoa
 	int	vitoa = -2147483648;
 	printf("Original ->\t(No function)\nCreated  ->\t%s\n", ft_itoa(vitoa));
-	// ----- 
+	// ----- ft_memchr
+	char	strmemchr[] = "La quete de vengence ne m'interesse pas. - Evil Gaspard";
+	printf("Original ->\t%s\nCreated  ->\t%s\n", (char *) memchr(strmemchr, '\t', 10), (char *) ft_memchr(strmemchr, '\t', 10));
+	int	tabsize = 8;
+	int	*tab = malloc (sizeof(int) * tabsize);
+	int i = 0;
+	while (i < tabsize)
+	{
+		tab[i] = i;
+		i++;
+	}
+	printf("Original ->\t%d\nCreated  ->\t%d\n", *(int *) memchr(tab, 5, sizeof(int) * 10), *(int *) ft_memchr(tab, 5, sizeof(int) * 10));
+	// ----- ft_memcmp
+	tabsize = 8;
+	int	*tabcmp = malloc (sizeof(int) * tabsize);
+	i = 0;
+	while (i < tabsize)
+	{
+		if (i != 5)
+			tabcmp[i] = i;
+		else
+			tabcmp[i] = 20;
+		i++;
+	}
+	int	sizecmp = 6;
+	printf("Original ->\t%d\nCreated  ->\t%d\n", memcmp(tab, tabcmp, sizeof(int) * sizecmp), ft_memcmp(tab, tabcmp, sizeof(int) * sizecmp));
+	
 }
 
 // V isalpha
