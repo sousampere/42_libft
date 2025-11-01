@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:28 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/31 15:15:19 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/01 16:36:37 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-	char newline;
+	int		i;
+	char	newline;
 
 	i = 0;
 	newline = 10;

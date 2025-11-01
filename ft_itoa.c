@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 11:09:57 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/31 13:46:13 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/01 16:35:31 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ char	*ft_itoa(int n)
 	if (n == -2147483648)
 		return ("-2147483648");
 	result = malloc(sizeof(char) * 12);
-	if (result)
+	if (result == NULL)
+		return (result);
 	sign = 1;
 	rev_i = 11;
 	sign_check(&sign, &n);
