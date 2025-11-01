@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:08:40 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/01 17:11:30 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/01 17:12:22 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,4 @@
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
-	close(fd);
 }
