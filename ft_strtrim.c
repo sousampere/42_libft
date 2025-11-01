@@ -6,57 +6,53 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:09:50 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/30 18:46:53 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/01 16:21:58 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	append_char(char *str, char c)
+static int	is_in_set(char c, const char *set)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	str[i] = c;
-	str[i + 1] = '\0';
-}
-
-static int	get_len(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strtrim(char const *s1, char const *s2)
-{
-	int		i;
-	int		subi;
-	char	*new_str;
-	int		bool_copy;
-
-	new_str = malloc(sizeof(char) * get_len(s1));
-	new_str[0] = '\0';
-	i = 0;
-	subi = 0;
-	while (s1[i] && new_str != NULL)
+	while (set[i])
 	{
-		bool_copy = 1;
-		while (s2[subi])
-		{
-			if (s1[i] == s2[subi])
-				bool_copy = 0;
-			subi++;
-		}
-		if (bool_copy)
-			append_char(new_str, s1[i]);
+		if (set[i] == c)
+			return (1);
 		i++;
-		subi = 0;
 	}
-	return (new_str);
+	return (0);
+}
+
+static int	check_following(char const *s1, char const *set)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i])
+	{
+		if (!is_in_set(s1[i], set))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	i;
+	char	*result;
+
+	while (is_in_set(*s1, set))
+		s1++;
+	i = 0;
+	result = malloc(sizeof(char) * (ft_strlen(s1)));
+	while (!check_following(&s1[i], set) && s1[i] && result != NULL)
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	return (result);
 }
