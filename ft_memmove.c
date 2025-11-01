@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 09:26:23 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/10/29 10:10:14 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/01 12:41:23 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,26 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t		i;
-	char		*c_dest;
-	const char	*c_src;
+	size_t	i;
+	char	*cool = (char *) src;
 
 	i = 0;
-	c_dest = dest;
-	c_src = src;
 	if (dest < src)
 	{
-		while (i <= n)
+		while (i < n)
 		{
-			c_dest[n - i] = c_src[n - i];
+			((char *) dest)[i] = ((char *) src)[i];
 			i++;
 		}
 	}
 	else
 	{
-		while (i <= n)
+		while (n > 0)
 		{
-			c_dest[i] = c_src[i];
-			i++;
+			((char *) dest)[n - 1] = ((char *) src)[n - 1];
+			n--;
 		}
 	}
+	(void) cool;
 	return (dest);
 }
