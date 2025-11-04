@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:08:31 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/01 19:07:15 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/02 11:51:35 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+# define BALCK "\e[0;30m"
+# define RED "\e[0;31m"
+# define GREEN "\e[0;32m"
+# define YELLOW "\e[0;33m"
+# define BLUE "\e[0;34m"
+# define PURPLE "\e[0;35m"
+# define CYAN "\e[0;36m"
+# define WHITE "\e[0;37m"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

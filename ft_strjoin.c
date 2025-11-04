@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 17:52:39 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/01 13:55:57 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/04 13:45:13 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,35 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len;
-	char	*new_str;
+	char	*string;
 	size_t	i;
-	size_t	nstr_i;
+	size_t	stringlen;
 
-	len = ft_strlen(s1) + ft_strlen(s2);
-	new_str = malloc(sizeof(char) * len);
-	if (new_str == NULL)
-		return (NULL);
 	i = 0;
-	nstr_i = 0;
-	while (s1[nstr_i])
+	string = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!string)
+		return (NULL);
+	while (s1[i])
 	{
-		new_str[nstr_i] = s1[nstr_i];
-		nstr_i++;
+		string[i] = s1[i];
+		i++;
 	}
+	string[i] = '\0';
 	i = 0;
 	while (s2[i])
 	{
-		new_str[nstr_i] = s2[i];
+		stringlen = ft_strlen(string);
+		string[stringlen] = s2[i];
+		string[stringlen + 1] = '\0';
 		i++;
-		nstr_i++;
 	}
-	new_str[nstr_i] = '\0';
-	return (new_str);
+	return (string);
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	char s1[] = "salut";
+// 	char s2[] = " world";
+// 	printf("%s\n", ft_strjoin(s1, s2));
+// }

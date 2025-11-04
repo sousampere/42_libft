@@ -21,4 +21,6 @@ re: fclean $(NAME) clean
 %.o : %.c
 	$(C) $(C_FLAGS) -c $< -o $@
 
-.PHONY: all clean fclean re
+libonly: $(O_FILES) $(NAME) clean
+
+.PHONY: all clean fclean re libonly

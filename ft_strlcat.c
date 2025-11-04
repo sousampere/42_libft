@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 20:40:18 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/01 16:37:04 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/04 09:48:35 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,36 @@
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	destlen;
+	size_t	dstlen;
+	size_t	srclen;
 
-	destlen = ft_strlen(dst);
-	i = 0;
 	if (size == 0)
 		return (ft_strlen(src));
-	while (i + destlen < size - 1 && src[i] != '\0')
+	i = 0;
+	dstlen = ft_strlen(dst);
+	srclen = ft_strlen(src);
+	if (size < dstlen)
+		return (size + srclen);
+	while (ft_strlen(dst) < size - 1 && src[i])
 	{
-		dst[i + destlen] = src[i];
+		dst[dstlen + i] = src[i];
+		dst[dstlen + i + 1] = '\0';
 		i++;
 	}
-	if (src[i] == '\0')
-	{
-		dst[i + destlen] = '\0';
-	}
-	return (destlen + ft_strlen(src));
+	dst[dstlen + i] = '\0';
+	return (dstlen + srclen);
 }
+
+
+// #include <string.h>
+// #include <stdio.h>
+// #include "libft.h"
+// #include <bsd/string.h>
+// int main()
+// {
+// 	char dest[30]; memset(dest, 0, 30);
+// 	char * src = (char *)"AAAAAAAAA";
+// 	dest[0] = 'B';
+// 	size_t res = ft_strlcat(dest, src, 5);
+// 	printf("%zu \t%s\nCmp : %d", res, dest, ft_strncmp(dest, "11111111111", 10));
+// }
