@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:16:26 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/04 17:54:22 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/04 18:03:13 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	printf("%d\n", strncmp("salut", "salutation", 500));
-}
+// #include <stdio.h>
+// #include <string.h>
+// int main()
+// {
+// 	printf("%d\n", strncmp("salut", "salutation", 500));
+// }
