@@ -6,80 +6,87 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:47:30 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/04 17:49:20 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/04 22:35:11 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
-// 						#include <stdio.h>
+#include "libft.h"
 
+static size_t	get_len(char const *s, char c)
+{
+	size_t	len;
 
-// static size_t	get_num_of_strings(char const *s, char c)
+	len = 0;
+	while (s[len] != c && s[len])
+		len++;
+	return (len);
+}
+
+static char	*get_string(char const *s, char c)
+{
+	size_t	len;
+	size_t	i;
+	char	*str;
+
+	i = 0;
+	len = 0;
+	while (s[len] != c && s[len])
+		len++;
+	str = ft_calloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	while (s[i] != c && s[i])
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+// static char	**free_all(char **strings, size_t strings_number)
 // {
 // 	size_t	i;
-// 	size_t	num_of_string;
 
 // 	i = 0;
-// 	num_of_string = 0;
-// 	while (s[i])
+// 	while (i < strings_number)
 // 	{
-// 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-// 			num_of_string++;
+// 		free(strings[i]);
 // 		i++;
 // 	}
-// 	return (num_of_string);
+// 	free(strings);
+// 	return (NULL);
 // }
 
-// static size_t	splitlen(const char *s, char c)
-// {
-// 	size_t	i;
+char	**ft_split(char const *s, char c)
+{
+	size_t	i;
+	size_t	strings_i;
+	char	**strings;
 
-// 	while (s[i] && s[i] != c)
-// 		i++;
-// 	return (i);
-// }
-
-// static size_t	splitlen(const char *s, char c)
-// {
-// 	size_t	i;
-
-// 	while (s[i] && s[i] != c)
-// 		i++;
-// 	return (i);
-// }
-						
-// char	**ft_split(char const *s, char c)
-// {
-// 	size_t	num_of_string;
-// 	size_t	i;
-// 	size_t	mallocs;
-// 	char	**strings;
-
-// 	num_of_string = get_num_of_strings(s, c);
-// 	strings = malloc(sizeof(char *) * num_of_string);
-// 	if (!strings)
-// 		return (NULL);
-// 	mallocs = 0;
-// 	while (s[i])
-// 	{
-// 		if (s[i] != c)
-// 		{
-// 			strings[mallocs] = malloc(sizeof(char) * splitlen(&s[i], c));
-// 			if (!strings[])
-// 			// FREE ALL
-// 		}
-// 		i++;
-// 	}
-// }
-
-
-
-
+	strings = ft_calloc(sizeof(char *) * ft_strlen(s));
+	if (!strings)
+		return (NULL);
+	i = 0;
+	strings_i = 0;
+	while (s[i])
+	{
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i])
+			strings[strings_i] = get_string(&s[i], c);
+			// if (!strings[strings_i])
+			// 	return (free_all(strings, strings_i));
+			i += get_len(&s[i], c);
+			strings_i++;
+	}
+	return (strings);
+}
 
 // #include <stdio.h>
 
 // int main ()
 // {
-// 	size_t n = get_num_of_strings("36  tri pouille  42  66", ' ');
-// 	printf("%zu\n", n);
+// 	char	**strings = ft_split("  tripouille  42  ", ' ');
+// 	printf("%s\n", strings[0]);
 // }
