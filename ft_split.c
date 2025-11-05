@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:47:30 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/05 09:48:20 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/05 11:12:50 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	**ft_split(char const *s, char c)
 	size_t	strings_i;
 	char	**strings;
 
-	strings = malloc(sizeof(char *) * (get_words_count(s, c) + 1));
+	strings = calloc(sizeof(char *),(get_words_count(s, c) + 1));
 	if (!strings)
 		return (NULL);
 	i = 0;
