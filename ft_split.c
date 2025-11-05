@@ -6,11 +6,30 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:47:30 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/04 22:35:11 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/05 09:48:20 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static size_t	get_words_count(char const *s, char c)
+{
+	size_t	i;
+	size_t	count;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i])
+		count++;
+		while (s[i] && s[i] != c)
+			i++;
+	}
+	return (count);
+}
 
 static size_t	get_len(char const *s, char c)
 {
@@ -32,7 +51,7 @@ static char	*get_string(char const *s, char c)
 	len = 0;
 	while (s[len] != c && s[len])
 		len++;
-	str = ft_calloc(sizeof(char) * (len + 1));
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	while (s[i] != c && s[i])
@@ -44,19 +63,19 @@ static char	*get_string(char const *s, char c)
 	return (str);
 }
 
-// static char	**free_all(char **strings, size_t strings_number)
-// {
-// 	size_t	i;
+static char	**free_all(char **strings, size_t strings_number)
+{
+	size_t	i;
 
-// 	i = 0;
-// 	while (i < strings_number)
-// 	{
-// 		free(strings[i]);
-// 		i++;
-// 	}
-// 	free(strings);
-// 	return (NULL);
-// }
+	i = 0;
+	while (i < strings_number)
+	{
+		free(strings[i]);
+		i++;
+	}
+	free(strings);
+	return (NULL);
+}
 
 char	**ft_split(char const *s, char c)
 {
@@ -64,7 +83,7 @@ char	**ft_split(char const *s, char c)
 	size_t	strings_i;
 	char	**strings;
 
-	strings = ft_calloc(sizeof(char *) * ft_strlen(s));
+	strings = malloc(sizeof(char *) * (get_words_count(s, c) + 1));
 	if (!strings)
 		return (NULL);
 	i = 0;
@@ -74,19 +93,22 @@ char	**ft_split(char const *s, char c)
 		while (s[i] == c && s[i])
 			i++;
 		if (s[i])
+		{
 			strings[strings_i] = get_string(&s[i], c);
-			// if (!strings[strings_i])
-			// 	return (free_all(strings, strings_i));
+			if (!strings[strings_i])
+				return (free_all(strings, strings_i));
 			i += get_len(&s[i], c);
 			strings_i++;
+		}
 	}
 	return (strings);
 }
 
 // #include <stdio.h>
-
+// #include <mcheck.h>
+// #include <string.h>
 // int main ()
 // {
-// 	char	**strings = ft_split("  tripouille  42  ", ' ');
-// 	printf("%s\n", strings[0]);
+// 	char	**tab = ft_split(" Tripouille ", ' ');
+// 	printf("%s\n", tab[1]);
 // }
