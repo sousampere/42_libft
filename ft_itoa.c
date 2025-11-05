@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 11:09:57 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/05 12:24:34 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/05 19:27:17 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 static int	get_strlen(long n)
 {
 	int	len;
-	int	sign;
 
 	len = 1;
-	sign = 1;
 	if (n < 0)
 	{
-		sign = -1;
 		n *= -1;
 		len++;
 	}
