@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 11:09:57 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/05 10:49:17 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/05 12:24:34 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*ft_itoa(int n)
 		number /= 10;
 	}
 	if (sign < 0)
-		str[i-1] = '-';
+		str[i - 1] = '-';
 	return (case_zero(str, n));
 }
 
