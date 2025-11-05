@@ -6,46 +6,71 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 11:09:57 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/01 16:35:31 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/05 10:49:17 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	sign_check(int *sign, int *n)
+static int	get_strlen(long n)
 {
-	if (*n < 0)
+	int	len;
+	int	sign;
+
+	len = 1;
+	sign = 1;
+	if (n < 0)
 	{
-		*sign = -1;
-		*n *= -1;
+		sign = -1;
+		n *= -1;
+		len++;
 	}
+	while (n >= 10)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*case_zero(char	*str, int n)
+{
+	if (n == 0)
+		str[0] = '0';
+	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*result;
+	long	number;
+	char	*str;
+	int		i;
 	int		sign;
-	int		rev_i;
 
-	if (n == -2147483648)
-		return ("-2147483648");
-	result = malloc(sizeof(char) * 12);
-	if (result == NULL)
-		return (result);
+	number = (long) n;
+	i = get_strlen(number);
 	sign = 1;
-	rev_i = 11;
-	sign_check(&sign, &n);
-	result[rev_i] = '\0';
-	while (n > 0)
+	str = malloc(sizeof(char) * (i + 1));
+	if (number < 0)
 	{
-		rev_i--;
-		result[rev_i] = n % 10 + '0';
-		n /= 10;
+		number *= -1;
+		sign = -1;
 	}
-	if (sign == -1)
+	str[i] = '\0';
+	while (number > 0)
 	{
-		rev_i--;
-		result[rev_i] = '-';
+		i--;
+		str[i] = (number % 10) + 48;
+		number /= 10;
 	}
-	return (&result[rev_i]);
+	if (sign < 0)
+		str[i-1] = '-';
+	return (case_zero(str, n));
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	int	i = 0;
+// 	printf("%d\n%s\n%d\n", i, ft_itoa(i), get_strlen(i));
+// }
