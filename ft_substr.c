@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 17:43:41 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/04 12:01:17 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/06 22:16:45 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	if ((ft_strlen(s) - start) < len)
 		len = ft_strlen(s) - start;
 	if (start > ft_strlen(s))
@@ -34,9 +36,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
-// #include <stdio.h>
-// int main()
-// {
-// 	char *s = ft_substr("tripouille", 100, 1);
-// 	printf("%s\n", s);
-// }

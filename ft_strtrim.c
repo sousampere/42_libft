@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:09:50 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/06 15:35:08 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/06 22:05:54 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	len = 0;
-	while (s1[i])
-	{
+	if (s1 == NULL || set == NULL)
+		return (NULL);
+	while (s1[i++])
 		len += !(is_in_set(s1[i], set));
-		i++;
-	}
 	if (!(string = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	i = 0;
@@ -54,9 +53,19 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (string);
 }
 
-// #include <stdio.h>
-// int main()
-// {
-// 	char * s = ft_strtrim("   xxxtripouille", " x");
-// 	printf("%s\n", s);
+// #include <stdlib.h>
+// #include <string.h>
+// int main() {
+//     char *s1 = "Hello World";
+//     char *set = "l";
+//     char *result = ft_strtrim(s1, set);
+
+//     if (result == NULL) return 1;
+//     if (strcmp(result, "  Hello World  ") != 0) {
+//         free(result);
+//         return 1;
+//     }
+
+//     free(result);
+//     return 0;
 // }

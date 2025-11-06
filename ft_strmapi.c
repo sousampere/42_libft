@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:46:51 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/05 15:09:48 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/06 22:00:34 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 	char			*newstr;
 
+	if (f == NULL || s == NULL)
+		return (NULL);
 	i = 0;
 	newstr = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (newstr == NULL)

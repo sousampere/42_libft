@@ -16,6 +16,7 @@ $(NAME): $(O_FILES)
 clean:
 	rm -rf $(BONUS_O_FILES)
 	rm -rf $(O_FILES)
+	rm -rf $(BONUS_O_FILES)
 
 fclean: clean
 	rm -rf $(NAME)

@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:01:06 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/01 17:37:04 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/06 21:57:03 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (s == NULL)
+		return ;
 	while (s[i])
 		i++;
 	write(fd, s, i);

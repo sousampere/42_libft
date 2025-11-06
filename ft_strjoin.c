@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 17:52:39 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/04 13:45:13 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/06 22:07:48 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	stringlen;
 
 	i = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	string = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!string)
 		return (NULL);
