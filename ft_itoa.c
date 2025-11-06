@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 11:09:57 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/05 19:27:17 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/06 15:22:42 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ char	*ft_itoa(int n)
 	number = (long) n;
 	i = get_strlen(number);
 	sign = 1;
-	str = malloc(sizeof(char) * (i + 1));
+	if (!(str = (char *) malloc(sizeof(char) * (i + 1))))
+		return (NULL);
 	if (number < 0)
 	{
 		number *= -1;

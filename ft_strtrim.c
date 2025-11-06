@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:09:50 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/04 14:30:31 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/06 15:35:08 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 		len += !(is_in_set(s1[i], set));
 		i++;
 	}
-	string = malloc(sizeof(char) * (len + 1));
+	if (!(string = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
 	i = 0;
 	stri = 0;
 	while (stri < len)
 	{
 		if (!is_in_set(s1[i], set))
-		{
-			string[stri] = s1[i];
-			stri++;
-		}
+			string[stri++] = s1[i];
 		i++;
 	}
 	string[stri] = '\0';

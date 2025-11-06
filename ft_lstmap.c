@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 17:33:42 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/06 15:27:32 by gtourdia         ###   ########.fr       */
+/*   Created: 2025/11/06 14:04:46 by gtourdia          #+#    #+#             */
+/*   Updated: 2025/11/06 15:41:12 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
-{
-	size_t	strlen;
-	char	*new_str;
-	size_t	i;
+// void	free_all(t_list *lst, int size)
+// {
+	
+// }
 
-	i = 0;
-	strlen = ft_strlen(s);
-	new_str = ft_calloc(strlen + 1, sizeof(char));
-	if (!new_str)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*new;
+	int		i;
+	int		size;
+	
+	if (lst == NULL)
 		return (NULL);
-	while (i < strlen && new_str != NULL)
+	new = ft_lstnew(f(lst->content));
+	if (new == NULL)
+		return (NULL);
+	size = 
+	while (condition)
 	{
-		new_str[i] = s[i];
-		i++;
+		/* code */
 	}
-	return (new_str);
+	
 }
