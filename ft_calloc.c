@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 17:22:39 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/04 10:14:00 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:26:04 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*alloc;
-	
+
 	if (size != 0 && (nmemb * size) / size != nmemb)
 		return (NULL);
 	alloc = malloc(nmemb * size);

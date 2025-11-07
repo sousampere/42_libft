@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:47:30 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/06 22:01:03 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:26:19 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static size_t	get_words_count(char const *s, char c)
 		while (s[i] == c && s[i])
 			i++;
 		if (s[i])
-		count++;
+			count++;
 		while (s[i] && s[i] != c)
 			i++;
 	}

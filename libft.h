@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:08:31 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/06 15:49:32 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:06:45 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define CYAN "\e[0;36m"
 # define WHITE "\e[0;37m"
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;

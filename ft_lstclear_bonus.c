@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 10:24:15 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/06 15:23:58 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 16:56:38 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*ptr;
 	t_list	*nptr;
 
+	if (lst == NULL || del == NULL)
+		return ;
 	ptr = lst[0];
 	while (ptr->next != NULL)
 	{

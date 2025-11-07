@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 17:43:41 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/07 10:21:04 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:26:40 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char 	*substr;
+	char	*substr;
 	size_t	i;
 
 	i = 0;
@@ -35,4 +35,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr[i] = '\0';
 	return (substr);
 }
-

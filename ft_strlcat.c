@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 20:40:18 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/04 09:48:35 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:19:21 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dstlen + i] = '\0';
 	return (dstlen + srclen);
 }
-
-
-// #include <string.h>
-// #include <stdio.h>
-// #include "libft.h"
-// #include <bsd/string.h>
-// int main()
-// {
-// 	char dest[30]; memset(dest, 0, 30);
-// 	char * src = (char *)"AAAAAAAAA";
-// 	dest[0] = 'B';
-// 	size_t res = ft_strlcat(dest, src, 5);
-// 	printf("%zu \t%s\nCmp : %d", res, dest, ft_strncmp(dest, "11111111111", 10));
-// }

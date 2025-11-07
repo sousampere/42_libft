@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 11:09:57 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/06 15:22:42 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:22:19 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	get_strlen(long n)
 	return (len);
 }
 
-char	*case_zero(char	*str, int n)
+static char	*case_zero(char	*str, int n)
 {
 	if (n == 0)
 		str[0] = '0';
@@ -47,7 +47,8 @@ char	*ft_itoa(int n)
 	number = (long) n;
 	i = get_strlen(number);
 	sign = 1;
-	if (!(str = (char *) malloc(sizeof(char) * (i + 1))))
+	str = (char *) malloc(sizeof(char) * (i + 1));
+	if (str == NULL)
 		return (NULL);
 	if (number < 0)
 	{
@@ -55,9 +56,8 @@ char	*ft_itoa(int n)
 		sign = -1;
 	}
 	str[i] = '\0';
-	while (number > 0)
+	while (number > 0 && (i-- || 1 == 1))
 	{
-		i--;
 		str[i] = (number % 10) + 48;
 		number /= 10;
 	}

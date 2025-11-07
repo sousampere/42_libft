@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 17:18:44 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/06 21:53:34 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:26:56 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int		i;
 	t_list	*nextl;
 
 	i = 0;

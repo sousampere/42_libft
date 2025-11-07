@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:09:50 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/07 11:45:53 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:24:56 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL || set == NULL)
 		return (NULL);
 	len = get_len(s1, set);
-	if (!(str = malloc(sizeof(char) * (len + 1))))
+	str = malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
 		return (NULL);
 	i = 0;
 	while (*s1 != '\0' && is_in_set(*s1, set))
@@ -75,18 +76,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (str);
 }
 
-
 // char	*ft_strtrim(char const *s1, char const *set)
 // {
 // 	size_t	i;
-
-	
 // 	while (s1[i])
 // 	{
-		
 // 	}
 // }
-
 // #include <stdlib.h>
 // #include <string.h>
 // #include "stdio.h"
@@ -94,18 +90,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 //     char *s1 = "   Hello World   ";
 //     char *set = " ";
 //     char *result = ft_strtrim(s1, set);
-
 // 	printf("%s|||\n", result);
 //     if (result == NULL) return 1;
 //     if (strcmp(result, "Hello World") != 0) {
 //         free(result);
 //         return 1;
 //     }
-
 //     free(result);
 //     return 0;
 // }
-
 // #include "stdio.h"
 // int main()
 // {

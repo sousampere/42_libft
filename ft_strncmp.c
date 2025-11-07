@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 14:16:26 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/04 18:03:13 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 17:24:36 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,32 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (n == 0 || (*s1 == '\0' && *s2 == '\0'))
-		return (0);
-	while (i < n && s1[i] && s2[i])
+	while (i < n)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if ((unsigned char) s1[i] != (unsigned char) s2[i])
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+		if ((unsigned char) s1[i] == '\0')
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 		i++;
 	}
-	if (s1[i] == '\0' && s2[i] != '\0')
-		return (-1);
-	if (s2[i] == '\0' && s1[i] != '\0')
-		return (1);
 	return (0);
 }
 
-// #include <stdio.h>
 // #include <string.h>
-// int main()
-// {
-// 	printf("%d\n", strncmp("salut", "salutation", 500));
+// #include <stdio.h>
+// int main() {
+//     char s1[] = "Hello";
+//     char s2[] = "Hello World";
+//     int result1 = strncmp(s1, s2, 5);
+//     int result2 = ft_strncmp(s1, s2, 5);
+// 	printf("%d\n", result1);
+// 	printf("%d\n", result2);
+//     // Maintenant comparer plus de caractères
+//     result1 = strncmp(s1, s2, 10);
+//     result2 = ft_strncmp(s1, s2, 10);
+// 	printf("%d\n", result1);
+// 	printf("%d\n", result2);
+//     // s1 < s2 (à cause du null terminator vs space)
+//     if ((result1 < 0) != (result2 < 0)) return 1;
+//     return 0;
 // }
