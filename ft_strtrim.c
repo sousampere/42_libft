@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:09:50 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/07 11:36:41 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 11:45:53 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	int		len;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	len = get_len(s1, set);
-	str = malloc(sizeof(char) * (len + 1));
+	if (!(str = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
 	i = 0;
 	while (*s1 != '\0' && is_in_set(*s1, set))
 		s1++;
