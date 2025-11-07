@@ -16,7 +16,6 @@ $(NAME): $(O_FILES)
 clean:
 	rm -rf $(BONUS_O_FILES)
 	rm -rf $(O_FILES)
-	rm -rf $(BONUS_O_FILES)
 
 fclean: clean
 	rm -rf $(NAME)
@@ -30,5 +29,9 @@ bonus: $(BONUS_O_FILES) $(O_FILES)
 
 %.o : %.c
 	$(C) $(C_FLAGS) -c $< -o $@
+
+so:
+	$(C) -nostartfiles -fPIC $(C_FLAGS) $(C_FILES) $(BONUS_C_FILES)
+	gcc -nostartfiles -shared -o libft.so $(O_FILES) $(BONUS_O_FILES)
 
 .PHONY: all clean fclean re libonly bonus

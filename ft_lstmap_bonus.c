@@ -6,7 +6,7 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:04:46 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/06 23:43:06 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 12:52:58 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 // }
 
 
+#include <stdio.h>
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
@@ -44,23 +45,14 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	
 	if (!lst || !(new = ft_lstnew(f(lst->content))))
 		return (NULL);
-	while (lst->next != NULL)
-	{
-		lst = lst->next;
-		if (!(copy = ft_lstnew(f(lst->content))))
-		{
-			ft_lstclear(&new, del);
-			free(new);
-			return (NULL);
-		}
-		ft_lstadd_back(&copy, new);
-	}
+	
 	return (new);
 }
 
 
 // #include <stdlib.h>
 // #include <string.h>
+// #include <stdio.h>
 // void *duplicate_content(void *content) {
 //     char *str = (char *)content;
 //     char *dup = malloc(strlen(str) + 1);
@@ -79,7 +71,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 //     t_list *mapped = ft_lstmap(lst, duplicate_content, del_content);
 
 //     if (mapped == NULL) return 1;
-//     if (strcmp((char *)mapped->content, "Hello") != 0) return 1;
+//     printf("%d\n", strcmp((char *)mapped->content, "Hello"));
 //     if (strcmp((char *)mapped->next->content, "World") != 0) return 1;
 
 //     // Clean up original list
