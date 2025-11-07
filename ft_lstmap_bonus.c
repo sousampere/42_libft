@@ -6,47 +6,33 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 14:04:46 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/07 12:52:58 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:55:03 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
-// {
-// 	t_list	*first_node;
-// 	t_list	*first;
-// 	t_list	*copy;
-	
-// 	if (lst == NULL || !(first = ft_lstnew(f(lst->content))))
-// 		return (NULL);
-// 	first_node = first;
-// 	while (lst->next != NULL)
-// 	{
-// 		lst = lst->next;
-// 		if (!(copy = ft_lstnew(f(lst->content))))
-// 		{
-// 			ft_lstclear(&first_node, del);
-// 			return (NULL);
-// 		}
-// 		first->next = copy;
-// 	}
-// 	first->next = copy;
-// 	copy->next = NULL;
-// 	return (first_node);
-// }
-
-
-#include <stdio.h>
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
-	t_list	*copy;
-	
+	t_list	*first_node;
+	(void) del;
+
 	if (!lst || !(new = ft_lstnew(f(lst->content))))
 		return (NULL);
-	
-	return (new);
+	first_node = new;
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+		if(!(new->next = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&first_node, del);
+			free(first_node);
+			return (NULL);
+		}
+		new = new->next;
+	}
+	return (first_node);
 }
 
 
@@ -71,8 +57,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 //     t_list *mapped = ft_lstmap(lst, duplicate_content, del_content);
 
 //     if (mapped == NULL) return 1;
-//     printf("%d\n", strcmp((char *)mapped->content, "Hello"));
-//     if (strcmp((char *)mapped->next->content, "World") != 0) return 1;
+//     printf("%d %s\n", strcmp((char *)mapped->content, "Hello"), (char*) mapped->content);
+//     printf("%d %s\n", strcmp((char *)mapped->next->content, "World"), (char*) mapped->next->content);
+//     printf("%d %s\n", strcmp((char *)mapped->next->next->content, "World"), (char*) mapped->next->next->content);
 
 //     // Clean up original list
 //     free(lst->next);
