@@ -6,18 +6,32 @@
 /*   By: gtourdia <@student.42mulhouse.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:08:31 by gtourdia          #+#    #+#             */
-/*   Updated: 2025/11/07 17:06:45 by gtourdia         ###   ########.fr       */
+/*   Updated: 2025/12/02 10:25:14 by gtourdia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# elif BUFFER_SIZE < 0
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 0
+# endif
+
+# ifndef MAX_FD
+#  define MAX_FD 1024
+# endif
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdio.h>
+# include <stdarg.h>
+# include <unistd.h>
 
-# define BALCK "\e[0;30m"
+# define BLACK "\e[0;30m"
 # define RED "\e[0;31m"
 # define GREEN "\e[0;32m"
 # define YELLOW "\e[0;33m"
@@ -81,5 +95,23 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+int		ft_printf(const char *s, ...)__attribute__((format(printf, 1, 2)));
+int		ft_printf_putstr(char *str);
+int		ft_printf_putnbr(int nbr);
+int		ft_printf_putchar(unsigned int c);
+int		ft_printf_putptr(unsigned long n);
+int		ft_printf_putxmin(long value);
+int		ft_printf_putxmaj(long value);
+int		ft_printf_putuint(unsigned int n);
+
+void	*ft_memset(void *s, int c, size_t n);
+void	*ft_clc(int nmemb, int size);
+int		ft_strlen_gnl(const char *s, int newline_factor);
+int		newline_in_string(char *str);
+char	*get_string_and_truncate(char prev_read[MAX_FD][BUFFER_SIZE + 1],
+			int fd);
+char	*join_strings(char *line, char *rd);
+char	*get_next_line(int fd);
 
 #endif
